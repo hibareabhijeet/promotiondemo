@@ -70,4 +70,16 @@ public class Promotion {
 		this.quantity = quantity;
 		this.discount = discount;
 	}
+
+	public Promotion(int type, String sku, String sku1, int discount) {
+		super();
+		this.type = type;
+		this.sku = sku;
+		this.sku1 = sku1;
+		this.discount = discount;
+	}
+
+	protected Promotion() {
+		super();	
+	}
 }
