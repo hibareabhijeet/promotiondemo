@@ -38,6 +38,9 @@ public class PromotionService {
 		int total = 0;
 		List<Promotion> list = repo.findAll().stream().filter(p -> p.getType() == 1).collect(Collectors.toList());
 		for (Promotion p : list) {
+			if(!inputMap.containsKey(p.getSku().charAt(0))) {
+				continue;
+			}
 			while (inputMap.get(p.getSku().charAt(0)) >= p.getQuantity()) {
 				System.out.println("before : " + inputMap.get(p.getSku().charAt(0)));
 				total += p.getDiscount();
