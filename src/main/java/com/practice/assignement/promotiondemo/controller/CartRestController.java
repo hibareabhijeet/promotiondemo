@@ -28,7 +28,7 @@ public class CartRestController {
 	@GetMapping(params = "sdu", path="/cart")
 	public ResponseEntity<Object> getTotal(@RequestParam List<Character> sdu) {
 		log.info("getTotal :{}",sdu );
-		sdu.stream().forEach(System.out::println);
+//		sdu.stream().forEach(System.out::println);
 //		ps.calculateTotal(sdu)
 		return new ResponseEntity<Object>(ps.calculateTotal(sdu),HttpStatus.OK);
 	}
