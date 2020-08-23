@@ -27,11 +27,37 @@ public class PromotionServiceTest {
 
 	@Test
 	void calculateTotal_applySingleRule() {
-		System.out.println("INSIDE calculateTotal");
 		List<Character> sdu = Arrays.asList('A', 'A', 'A');
-//		A,A,A,B,B,B,B,B,C,D
+//		A,A,A
 		int result = service.calculateTotal(sdu);
 		assertEquals(130, result);
 
+	}
+	
+	@Test
+	void calculateTotal_applyHybrideRule() {
+		List<Character> sdu = Arrays.asList('C','D');
+//		C,D
+		int result = service.calculateTotal(sdu);
+		assertEquals(30, result);
+		
+	}
+	
+	@Test
+	void calculateTotal_applyRemaining() {
+		List<Character> sdu = Arrays.asList('A','B','C');
+//		A,B,C
+		int result = service.calculateTotal(sdu);
+		assertEquals(100, result);
+		
+	}
+	
+	@Test
+	void calculateTotal_all() {
+		List<Character> sdu = Arrays.asList('A','A','A','B','B','B','B','B','C','D');
+//		A,A,A,B,B,B,B,B,C,D
+		int result = service.calculateTotal(sdu);
+		assertEquals(280, result);
+		
 	}
 }
